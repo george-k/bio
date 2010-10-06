@@ -14,7 +14,7 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': os.path.join(PROJECT_ROOT, 'bio.db'),  # Or path to database file if using sqlite3.
         'USER': 'test',                      # Not used with sqlite3.
         'PASSWORD': 'test',                  # Not used with sqlite3.
@@ -86,6 +86,14 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(PROJECT_ROOT, 'main/templates'),
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.auth",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.request",
+    "django.core.context_processors.media",
+    "main.context_processors.settings2context",
 )
 
 INSTALLED_APPS = (
