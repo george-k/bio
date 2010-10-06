@@ -38,3 +38,12 @@ class TestContactShow(HttpTestCase):
         self.find('Biography')
         self.find('Phone')
         self.find('E-mail')
+
+
+class TestRequestContext(HttpTestCase):
+    """ Check django.settings in request context """
+
+    def test_context(self):
+        response = self.client.get('/')
+        self.assert_true('settings' in response.context[0],
+                         'No settings in context.')
