@@ -67,5 +67,16 @@ h1 {
 }
 .contact dd {
     font-size:16px;
-    padding:5px 0 20px 30px;
+    padding:5px 0 20px 50px;
+}
+.edit_contact label {
+    font-weight:bold;
+    margin-right:30px;
+}
+.edit_contact input {
+    width:300px;
+    margin:3px 0;
+}
+.edit_contact td, .edit_contact th {
+    vertical-align:middle;
 }
