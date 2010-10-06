@@ -1,24 +1,27 @@
 {% extends "base.html"%}
 
+{% load i18n %}
 {% block content %}
 {% if contact %}
-<h1>BIO-DATA</h1>
+<h1>{% trans "Contact" %}</h1>
 <dl class="contact">
-  <dt>Name</dt>
+  <dt>{% trans "Name" %}</dt>
   <dd>{{ contact.name }}</dd>
-  <dt>Surname</dt>
+  <dt>{% trans "Surname" %}</dt>
   <dd>{{ contact.surname }}</dd>
-  <dt>Birthday</dt>
+  <dt>{% trans "Birthday" %}</dt>
   <dd>{{ contact.birthday }}</dd>
-  <dt>Biography</dt>
+  <dt>{% trans "Biography" %}</dt>
   <dd>{{ contact.bio }}</dd>
-  <dt>Phone</dt>
+  <dt>{% trans "Phone" %}</dt>
   <dd>{{ contact.phone }}</dd>
-  <dt>E-mail</dt>
+  <dt>{% trans "E-mail" %}</dt>
   <dd>{{ contact.email }}</dd>
 </dl>
-<a href="/edit_contact/" title="Edit contact">Edit contact</a>
+<a href="/edit_contact/" title="{% trans 'Edit contact' %}">
+  {% trans "Edit contact" %}
+</a>
 {% else %}
-<p>Sorry, can't find contact.</p>
+<p>{% trans "Sorry, can't find contact." %}</p>
 {% endif %}
 {% endblock %}

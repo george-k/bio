@@ -1,4 +1,6 @@
 *.pyc
 *.py~
 *.html~
+*.mo~
+*.po~
 *.db
