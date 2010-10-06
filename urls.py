@@ -14,7 +14,7 @@ if 'runserver' in sys.argv:
             kwargs={'document_root': settings.MEDIA_ROOT}),
     )
 else:
-    urlpatterns = ()
+    urlpatterns = []
 
 urlpatterns += patterns('',
     # Enable the admin:
@@ -22,3 +22,4 @@ urlpatterns += patterns('',
     # Enable apps
     url(r'^', include('main.urls')),
 )
+
