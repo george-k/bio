@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from tddspry.django import DatabaseTestCase, HttpTestCase
+from django.core.urlresolvers import reverse
 from main.models import Contact
 
 
@@ -25,3 +26,15 @@ class TestContact(DatabaseTestCase):
         contact = self.assert_create(Contact, name=CONTACT_NAME)
         self.assert_update(contact, name=CONTACT_NEW_NAME)
 
+
+class TestContactShow(HttpTestCase):
+    """ Test main page with bio-data. """
+
+    def contact_show_test(self):
+        res = self.get200('/')
+        self.find('Name')
+        self.find('Surname')
+        self.find('Birthday')
+        self.find('Biography')
+        self.find('Phone')
+        self.find('E-mail')
