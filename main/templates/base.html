@@ -9,11 +9,23 @@
 	{% block extrahead %}{% endblock %}
   </head>
 
+  {% load i18n %}
   <body >
     <div id="page">
-        {% block content %}
-        Content
-        {% endblock %}
+      <div class="cab">
+      {% if request.user.is_authenticated %}
+      {% trans "Welcome, "%}{{ request.user.username}}
+      {% if request.user.is_staff %}
+      <a href="/admin/">{% trans "Admin" %}</a>
+      {% endif %}
+      <a href="{% url django.contrib.auth.views.logout %}">
+        {% trans "Logout" %}
+      </a>
+      {% endif %}
+      </div>
+      {% block content %}
+      Content
+      {% endblock %}
     </div>
   </body>
 </html>

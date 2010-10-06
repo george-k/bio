@@ -109,3 +109,7 @@ INSTALLED_APPS = (
     'main',
     'reqlog'
 )
+
+LOGIN_URL = '/login/'
+
+LOGIN_REDIRECT_URL = '/'
