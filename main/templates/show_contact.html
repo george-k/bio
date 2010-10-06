@@ -1,0 +1,23 @@
+{% extends "base.html"%}
+
+{% block content %}
+{% if contact %}
+<h1>BIO-DATA</h1>
+<dl class="contact">
+  <dt>Name</dt>
+  <dd>{{ contact.name }}</dd>
+  <dt>Surname</dt>
+  <dd>{{ contact.surname }}</dd>
+  <dt>Birthday</dt>
+  <dd>{{ contact.birthday }}</dd>
+  <dt>Biography</dt>
+  <dd>{{ contact.bio }}</dd>
+  <dt>Phone</dt>
+  <dd>{{ contact.phone }}</dd>
+  <dt>E-mail</dt>
+  <dd>{{ contact.email }}</dd>
+</dl>
+{% else %}
+<p>Sorry, can't find contact.</p>
+{% endif %}
+{% endblock %}

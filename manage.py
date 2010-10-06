@@ -1,6 +1,11 @@
 #!/usr/bin/env python
+import os
+import sys
 from django.core.management import execute_manager
+
 try:
+    PROJECT_ROOT = os.getcwd()
+    sys.path.insert(1, PROJECT_ROOT)
     import settings # Assumed to be in the same directory.
 except ImportError:
     import sys
