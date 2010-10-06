@@ -62,6 +62,9 @@ h1 {
     font-size:24px;
     padding:50px 0 30px 0;
 }
+p {
+    margin-bottom:5px;
+}
 .contact dt {
     font-weight:bold
 }
@@ -79,4 +82,17 @@ h1 {
 }
 .edit_contact td, .edit_contact th {
     vertical-align:middle;
+}
+.auth label {
+    font-weight:bold;
+    margin-right:30px;
+}
+.auth input {
+    margin:3px 0;
+}
+.cab {
+    padding:10px 0;
+}
+.cab a {
+    margin-left:10px;
 }

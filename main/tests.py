@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from datetime import date
 from tddspry.django import DatabaseTestCase, HttpTestCase
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from main.models import Contact
 
@@ -62,6 +63,9 @@ class TestContactEdit(HttpTestCase):
                      'email': 'test@test.com',
                      'phone': '1234567890'
                      }
+        #Login
+        user = self.helper('create_user', 'testuser', 'password')
+        self.login('testuser', 'password')
         #Send post request to edit contact
         response = self.client.post('/edit_contact/', TEST_DATA)
         #Get edited contact
@@ -74,3 +78,17 @@ class TestContactEdit(HttpTestCase):
         self.assert_equal(contact.bio, TEST_DATA['bio'])
         self.assert_equal(contact.email, TEST_DATA['email'])
         self.assert_equal(contact.phone, TEST_DATA['phone'])
+
+
+class TestAuth(HttpTestCase):
+
+    def test_login(self):
+        user = self.helper('create_user', 'testuser', 'password')
+        self.login('testuser', 'password')
+        self.url(settings.LOGIN_REDIRECT_URL)
+
+    def test_logout(self):
+        user = self.helper('create_user', 'testuser', 'password')
+        self.login('testuser', 'password')
+        self.logout()
+        self.url('/')

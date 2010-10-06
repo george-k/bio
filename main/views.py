@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.utils.translation import ugettext_lazy as _
 from main.decorators import render_to
@@ -16,6 +17,7 @@ def show_contact(request):
     return {'contact': contact}
 
 
+@login_required
 @render_to('edit_contact.html')
 def edit_contact(request):
     """ Edit contact """
