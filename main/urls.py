@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls.defaults import url, patterns
-import main.views
 
 
-urlpatterns = patterns('',
-    url(r'^$', main.views.show_contact),
+urlpatterns = patterns('main.views',
+    url(r'^$', 'show_contact'),
+    url(r'^edit_contact/$', 'edit_contact'),
 )
