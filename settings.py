@@ -76,6 +76,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'reqlog.middleware.RequestLoggingMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
@@ -98,4 +99,5 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'main',
+    'reqlog'
 )
