@@ -10,7 +10,7 @@ CONTACT_NEW_NAME = 'new_name'
 
 class TestContact(DatabaseTestCase):
     """ Make CRUD tests for Contact model """
-    
+
     def create_test(self):
         self.assert_create(Contact, name=CONTACT_NAME)
 

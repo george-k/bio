@@ -4,7 +4,7 @@ from django.template import RequestContext
 
 def render_to(template=None, mimetype="text/html"):
     """
-    Decorator for Django views that sends returned dict to render_to_response 
+    Decorator for Django views that sends returned dict to render_to_response
     function.
 
     """
@@ -14,7 +14,8 @@ def render_to(template=None, mimetype="text/html"):
             if not isinstance(output, dict):
                 return output
             tmpl = output.pop('TEMPLATE', template)
-            return render_to_response(tmpl, output, \
-                        context_instance=RequestContext(request), mimetype=mimetype)
+            return render_to_response(tmpl, output,
+                                      context_instance=RequestContext(request),
+                                      mimetype=mimetype)
         return wrapper
     return renderer

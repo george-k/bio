@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from decorators import render_to
+from main.decorators import render_to
 from main.models import Contact
 
 
@@ -9,5 +9,4 @@ def show_contact(request):
         contact = Contact.objects.get(pk=1)
     except:
         contact = None
-    return {'contact':contact}
-
+    return {'contact': contact}
