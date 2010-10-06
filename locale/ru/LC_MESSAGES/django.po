@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-06 22:42+0300\n"
+"POT-Creation-Date: 2010-10-07 02:03+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,9 +83,21 @@ msgstr "контакт"
 msgid "contacts"
 msgstr "контакты"
 
-#: main/views.py:41
+#: main/views.py:43
 msgid "Contact save error. Try again."
 msgstr "Ошибка сохранения контакта. Попробуйте еще раз."
+
+#: main/templates/base.html:17
+msgid "Welcome, "
+msgstr "Добро пожаловать, "
+
+#: main/templates/base.html:19
+msgid "Admin"
+msgstr "Админка"
+
+#: main/templates/base.html:22
+msgid "Logout"
+msgstr "Выйти"
 
 #: main/templates/edit_contact.html:5 main/templates/show_contact.html:21
 #: main/templates/show_contact.html:22
@@ -103,6 +115,14 @@ msgstr "Сохранить"
 #: main/templates/edit_contact.html:21
 msgid "Main page"
 msgstr "На главную"
+
+#: main/templates/login.html:5
+msgid "Authentication"
+msgstr "Авторизация"
+
+#: main/templates/login.html:6
+msgid "Enter your login and password, please."
+msgstr "Введите логин и пароль, пожалуйста."
 
 #: main/templates/show_contact.html:6
 msgid "Contact"
