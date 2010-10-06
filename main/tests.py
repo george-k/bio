@@ -74,5 +74,3 @@ class TestContactEdit(HttpTestCase):
         self.assert_equal(contact.bio, TEST_DATA['bio'])
         self.assert_equal(contact.email, TEST_DATA['email'])
         self.assert_equal(contact.phone, TEST_DATA['phone'])
-        
-        
