@@ -44,7 +44,7 @@ class ObjectActionLog(models.Model):
     model = models.CharField(max_length=150, verbose_name=_('model name'))
     object_pk = models.CharField(max_length=10, verbose_name=_('object pk'))
     action = models.CharField(max_length=30, choices=ACTIONS,
-                              verbose_name=_('count type'))
+                              verbose_name=_('action'))
 
     class Meta:
         verbose_name = _('object action log')
