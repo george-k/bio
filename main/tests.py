@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 from datetime import date
+from StringIO import StringIO
+import sys
 
 from django.conf import settings
+from django.core.management import call_command
 from django.core.urlresolvers import reverse
 from django.template import Template, Context
 from tddspry.django import DatabaseTestCase, HttpTestCase
@@ -109,3 +112,16 @@ class TestAdminLink(HttpTestCase):
          template = Template('{% load owntags %}{% admin_link contact %}')
          res = template.render(Context({'contact': contact}))
          self.assert_equal(res, pattern)
+
+
+class TestPrintModelsCommand(HttpTestCase):
+    """ Check output of 'print_models' command """
+
+    def test_print_models_command(self):
+        saveout = sys.stdout
+        sys.stdout = output = StringIO()
+        call_command('printmodels')
+        sys.stdout = saveout
+        self.assert_not_equal(output.getvalue().find('models found'), -1)
+        self.assert_not_equal(output.getvalue().find('class'), -1)
+        self.assert_not_equal(output.getvalue().find('object(s)'), -1)
