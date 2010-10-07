@@ -3,6 +3,7 @@ from datetime import date
 from tddspry.django import DatabaseTestCase, HttpTestCase
 from django.conf import settings
 from django.core.urlresolvers import reverse
+from django.template import Template, Context
 from main.models import Contact
 
 
@@ -92,3 +93,17 @@ class TestAuth(HttpTestCase):
         self.login('testuser', 'password')
         self.logout()
         self.url('/')
+
+
+class TestAdminLink(HttpTestCase):
+    """ Test tag, wich returns link to object admin edit page """
+
+    def test_admin_link(self):
+         contact = Contact.objects.get(pk=1)
+         pattern = "/admin/{app}/{module}/{obj_pk}/".\
+                format(app=contact._meta.app_label,
+                       module=contact._meta.module_name,
+                       obj_pk=contact.pk)
+         template = Template('{% load owntags %}{% admin_link contact %}')
+         res = template.render(Context({'contact': contact}))
+         self.assert_equal(res, pattern)
