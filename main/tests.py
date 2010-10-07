@@ -36,7 +36,7 @@ class TestContactShow(HttpTestCase):
     """ Test main page with bio-data. """
 
     def contact_show_test(self):
-        res = self.get200('/')
+        self.get200('/')
         self.find('Name')
         self.find('Surname')
         self.find('Birthday')
@@ -86,12 +86,12 @@ class TestContactEdit(HttpTestCase):
 class TestAuth(HttpTestCase):
 
     def test_login(self):
-        user = self.helper('create_user', 'testuser', 'password')
+        self.helper('create_user', 'testuser', 'password')
         self.login('testuser', 'password')
         self.url(settings.LOGIN_REDIRECT_URL)
 
     def test_logout(self):
-        user = self.helper('create_user', 'testuser', 'password')
+        self.helper('create_user', 'testuser', 'password')
         self.login('testuser', 'password')
         self.logout()
         self.url('/')
