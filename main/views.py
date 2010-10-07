@@ -42,11 +42,12 @@ def edit_contact(request):
             except:
                 form.profilesave_error = _('Contact save error. Try again.')
     else:
-        form = ContactForm({'name': contact.name,
-                            'surname': contact.surname,
-                            'birthday': contact.birthday,
-                            'bio': contact.bio,
-                            'email': contact.email,
-                            'phone': contact.phone
-                            })
+        # form = ContactForm({'name': contact.name,
+        #                     'surname': contact.surname,
+        #                     'birthday': contact.birthday,
+        #                     'bio': contact.bio,
+        #                     'email': contact.email,
+        #                     'phone': contact.phone
+        #                     })
+        form = ContactForm(instance=contact)
     return {'contact_form': form}
