@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-07 13:13+0300\n"
+"POT-Creation-Date: 2010-10-07 22:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,35 +19,35 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: main/forms.py:27 main/templates/show_contact.html:9
+#: main/forms.py:28 main/templates/show_contact.html:9
 msgid "Name"
 msgstr "Имя"
 
-#: main/forms.py:29
+#: main/forms.py:30
 msgid "Enter your name, please"
 msgstr "Введите имя, пожалуйста"
 
-#: main/forms.py:30 main/templates/show_contact.html:11
+#: main/forms.py:31 main/templates/show_contact.html:11
 msgid "Surname"
 msgstr "Фамилия"
 
-#: main/forms.py:32
+#: main/forms.py:33
 msgid "Enter your surname, please"
 msgstr "Введите фамилию, пожалуйста"
 
-#: main/forms.py:34 main/templates/show_contact.html:13
+#: main/forms.py:35 main/templates/show_contact.html:13
 msgid "Birthday"
 msgstr "Дата рождения"
 
-#: main/forms.py:36 main/templates/show_contact.html:15
+#: main/forms.py:37 main/templates/show_contact.html:15
 msgid "Biography"
 msgstr "Биография"
 
-#: main/forms.py:39 main/templates/show_contact.html:19
+#: main/forms.py:40 main/templates/show_contact.html:19
 msgid "E-mail"
 msgstr ""
 
-#: main/forms.py:40 main/templates/show_contact.html:17
+#: main/forms.py:41 main/templates/show_contact.html:17
 msgid "Phone"
 msgstr "Телефон"
 
@@ -83,7 +83,7 @@ msgstr "контакт"
 msgid "contacts"
 msgstr "контакты"
 
-#: main/views.py:43
+#: main/views.py:44
 msgid "Contact save error. Try again."
 msgstr "Ошибка сохранения контакта. Попробуйте еще раз."
 
@@ -136,46 +136,78 @@ msgstr "Редактировать контакт в админке"
 msgid "Sorry, can't find contact."
 msgstr "Извините, контакт не найден."
 
-#: reqlog/models.py:9
+#: reqlog/models.py:11 reqlog/models.py:43
 msgid "date"
 msgstr ""
 
-#: reqlog/models.py:10
+#: reqlog/models.py:12
 msgid "path"
 msgstr ""
 
-#: reqlog/models.py:11
+#: reqlog/models.py:13
 msgid "HTTP method"
 msgstr ""
 
-#: reqlog/models.py:13
+#: reqlog/models.py:15
 msgid "remote address"
 msgstr ""
 
-#: reqlog/models.py:15
+#: reqlog/models.py:17
 msgid "referer"
 msgstr ""
 
-#: reqlog/models.py:17
+#: reqlog/models.py:19
 msgid "remote host"
 msgstr ""
 
-#: reqlog/models.py:19
+#: reqlog/models.py:21
 msgid "user agent"
 msgstr ""
 
-#: reqlog/models.py:20
+#: reqlog/models.py:22
 msgid "is sequre"
 msgstr ""
 
-#: reqlog/models.py:22
+#: reqlog/models.py:24
 msgid "request string"
 msgstr ""
 
-#: reqlog/models.py:25
+#: reqlog/models.py:27
 msgid "request log"
 msgstr "лог запроса"
 
-#: reqlog/models.py:26
+#: reqlog/models.py:28
 msgid "request logs"
 msgstr "логи запросов"
+
+#: reqlog/models.py:38
+msgid "Created"
+msgstr "Создан"
+
+#: reqlog/models.py:39
+msgid "Updated"
+msgstr "Изменен"
+
+#: reqlog/models.py:40
+msgid "Deleted"
+msgstr "Удален"
+
+#: reqlog/models.py:44
+msgid "model name"
+msgstr "модель"
+
+#: reqlog/models.py:45
+msgid "object pk"
+msgstr "pk объекта"
+
+#: reqlog/models.py:47
+msgid "action"
+msgstr "событие"
+
+#: reqlog/models.py:50
+msgid "object action log"
+msgstr "событие в объекте"
+
+#: reqlog/models.py:51
+msgid "object actions log"
+msgstr "события в объектах"
