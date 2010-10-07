@@ -1,6 +1,7 @@
 {% extends "base.html"%}
 
 {% load i18n %}
+{% load owntags %}
 {% block content %}
 {% if contact %}
 <h1>{% trans "Contact" %}</h1>
@@ -18,8 +19,11 @@
   <dt>{% trans "E-mail" %}</dt>
   <dd>{{ contact.email }}</dd>
 </dl>
-<a href="/edit_contact/" title="{% trans 'Edit contact' %}">
+<a class="link" href="/edit_contact/" title="{% trans 'Edit contact' %}">
   {% trans "Edit contact" %}
+</a>
+<a class="link" href="{% admin_link contact%}" title="{% trans 'Edit contact in admin' %}">
+  {% trans "Edit contact in admin" %}
 </a>
 {% else %}
 <p>{% trans "Sorry, can't find contact." %}</p>
