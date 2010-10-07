@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-07 02:03+0300\n"
+"POT-Creation-Date: 2010-10-07 13:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,35 +19,35 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: main/forms.py:7 main/templates/show_contact.html:8
+#: main/forms.py:27 main/templates/show_contact.html:9
 msgid "Name"
 msgstr "Имя"
 
-#: main/forms.py:9
+#: main/forms.py:29
 msgid "Enter your name, please"
 msgstr "Введите имя, пожалуйста"
 
-#: main/forms.py:10 main/templates/show_contact.html:10
+#: main/forms.py:30 main/templates/show_contact.html:11
 msgid "Surname"
 msgstr "Фамилия"
 
-#: main/forms.py:12
+#: main/forms.py:32
 msgid "Enter your surname, please"
 msgstr "Введите фамилию, пожалуйста"
 
-#: main/forms.py:13 main/templates/show_contact.html:12
+#: main/forms.py:34 main/templates/show_contact.html:13
 msgid "Birthday"
 msgstr "Дата рождения"
 
-#: main/forms.py:15 main/templates/show_contact.html:14
+#: main/forms.py:36 main/templates/show_contact.html:15
 msgid "Biography"
 msgstr "Биография"
 
-#: main/forms.py:18 main/templates/show_contact.html:18
+#: main/forms.py:39 main/templates/show_contact.html:19
 msgid "E-mail"
 msgstr ""
 
-#: main/forms.py:19 main/templates/show_contact.html:16
+#: main/forms.py:40 main/templates/show_contact.html:17
 msgid "Phone"
 msgstr "Телефон"
 
@@ -99,20 +99,20 @@ msgstr "Админка"
 msgid "Logout"
 msgstr "Выйти"
 
-#: main/templates/edit_contact.html:5 main/templates/show_contact.html:21
-#: main/templates/show_contact.html:22
+#: main/templates/edit_contact.html:13 main/templates/show_contact.html:22
+#: main/templates/show_contact.html:23
 msgid "Edit contact"
 msgstr "Изменить контакт"
 
-#: main/templates/edit_contact.html:7
+#: main/templates/edit_contact.html:15
 msgid "Correct errors, please."
 msgstr "Исправьте ошибки, пожалуйста."
 
-#: main/templates/edit_contact.html:16
+#: main/templates/edit_contact.html:24
 msgid "Save"
 msgstr "Сохранить"
 
-#: main/templates/edit_contact.html:21
+#: main/templates/edit_contact.html:29
 msgid "Main page"
 msgstr "На главную"
 
@@ -124,11 +124,15 @@ msgstr "Авторизация"
 msgid "Enter your login and password, please."
 msgstr "Введите логин и пароль, пожалуйста."
 
-#: main/templates/show_contact.html:6
+#: main/templates/show_contact.html:7
 msgid "Contact"
 msgstr "Контакт"
 
-#: main/templates/show_contact.html:25
+#: main/templates/show_contact.html:25 main/templates/show_contact.html:26
+msgid "Edit contact in admin"
+msgstr "Редактировать контакт в админке"
+
+#: main/templates/show_contact.html:29
 msgid "Sorry, can't find contact."
 msgstr "Извините, контакт не найден."
 
