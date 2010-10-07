@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
@@ -8,6 +9,7 @@ def render_to(template=None, mimetype="text/html"):
     function.
 
     """
+    
     def renderer(function):
         def wrapper(request, *args, **kwargs):
             output = function(request, *args, **kwargs)

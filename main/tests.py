@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 from datetime import date
-from tddspry.django import DatabaseTestCase, HttpTestCase
+
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.template import Template, Context
+from tddspry.django import DatabaseTestCase, HttpTestCase
+
 from main.models import Contact
 
 

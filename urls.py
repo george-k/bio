@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 import sys
+
+from django.conf import settings
 from django.conf.urls.defaults import url, patterns, include
-import settings
 
 
-# Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
@@ -17,9 +17,7 @@ else:
     urlpatterns = []
 
 urlpatterns += patterns('',
-    # Enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    # Enable apps
     url(r'^', include('main.urls')),
 )
 

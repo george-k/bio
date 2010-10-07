@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from django import forms
-from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
+
 from main.models import Contact
 
 
@@ -25,10 +26,10 @@ class CalendarWidget(forms.TextInput):
 
 class ContactForm(forms.ModelForm):
     name = forms.CharField(max_length=50, label=_('Name'),
-                           error_messages={'required': \
+                           error_messages={'required':
                                            _("Enter your name, please")})
     surname = forms.CharField(max_length=50, label=_('Surname'),
-                              error_messages={'required': \
+                              error_messages={'required':
                                               _("Enter your surname, please")})
     birthday = forms.DateField(input_formats=["%d.%m.%Y", "%Y-%m-%d"],
                                label=_("Birthday"), required=False,

@@ -2,9 +2,10 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.utils.translation import ugettext_lazy as _
+
 from main.decorators import render_to
-from main.models import Contact
 from main.forms import ContactForm
+from main.models import Contact
 
 
 @render_to('show_contact.html')

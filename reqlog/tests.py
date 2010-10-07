@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-from tddspry.django import HttpTestCase
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
+from tddspry.django import HttpTestCase
+
 from reqlog.models import RequestLog
 
 
