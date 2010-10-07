@@ -83,6 +83,11 @@ p {
 .edit_contact td, .edit_contact th {
     vertical-align:middle;
 }
+/* Calendar icon vertical align */
+.edit_contact td img {
+    margin-bottom:-4px;
+}
+/* **************************** */
 .auth label {
     font-weight:bold;
     margin-right:30px;
