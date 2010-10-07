@@ -2,6 +2,7 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
+from main.models import Contact
 
 
 class CalendarWidget(forms.TextInput):
@@ -22,7 +23,7 @@ class CalendarWidget(forms.TextInput):
                                                     'size': '10'})
 
 
-class ContactForm(forms.Form):
+class ContactForm(forms.ModelForm):
     name = forms.CharField(max_length=50, label=_('Name'),
                            error_messages={'required': \
                                            _("Enter your name, please")})
@@ -37,3 +38,10 @@ class ContactForm(forms.Form):
     email = forms.EmailField(max_length=50, widget=forms.TextInput(),
                              label=_("E-mail"), required=False)
     phone = forms.CharField(max_length=13, label=_('Phone'), required=False)
+
+    def __init__(self, *args, **kwargs):
+        super(ContactForm, self).__init__(*args, **kwargs)
+        self.fields.keyOrder.reverse()
+
+    class Meta:
+        model = Contact
