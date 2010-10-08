@@ -51,13 +51,23 @@ body {
     background: #ffffff;
     font:12px Arial,Verdana,sans-serif;
 }
-
 #page {
     width: 900px;
     margin:10px auto;
     padding:10px;
     position:relative;
-    border:#e2e2e2 solid 1px;
+    border-left:#E1E1E1 solid 1px;
+    border-top:#E1E1E1 solid 1px;
+    border-right:#D4D4D4 solid 1px;
+    border-bottom:#D4D4D4 solid 1px;
+    -moz-border-radius: 4px; /* Firefox */
+    -webkit-border-radius: 4px; /* Safari, Chrome */
+    -khtml-border-radius: 4px; /* KHTML */
+    border-radius: 4px; /* CSS3 */
+    box-shadow:0 1px 3px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow:0 1px 3px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.3);
+    -khtml-box-shadow:0 1px 3px rgba(0, 0, 0, 0.3);
 }
 h1 {
     font-weight:bold;
