@@ -11,11 +11,11 @@ class TestRequestLogging(HttpTestCase):
     def test_request_logging(self):
         """ Check request logging """
         #Send request
-        self.client.get('/?testparam=logging')
+        self.client.get('/test_path/?testparam=logging')
         #Check apropriate request log
-        try:
-            RequestLog.objects.get(Q(path='/'),
-                                   Q(req_str__contains='testparam'),
-                                   Q(req_str__contains='logging'))
-        except ObjectDoesNotExist:
-            self.assert_false(True)
+        last_logs = RequestLog.objects.order_by('-date')[0:1]
+        self.assert_true(len(last_logs), 'Log not found')
+        last_log = last_logs[0]
+        self.assert_not_equal(last_log.req_str.find('testparam'), -1)
+        self.assert_not_equal(last_log.req_str.find('logging'), -1)
+        self.assert_not_equal(last_log.path.find('test_path'), -1)
