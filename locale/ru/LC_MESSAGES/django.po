@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-07 22:36+0300\n"
+"POT-Creation-Date: 2010-10-08 15:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,10 +83,6 @@ msgstr "контакт"
 msgid "contacts"
 msgstr "контакты"
 
-#: main/views.py:44
-msgid "Contact save error. Try again."
-msgstr "Ошибка сохранения контакта. Попробуйте еще раз."
-
 #: main/templates/base.html:17
 msgid "Welcome, "
 msgstr "Добро пожаловать, "
@@ -99,22 +95,67 @@ msgstr "Админка"
 msgid "Logout"
 msgstr "Выйти"
 
-#: main/templates/edit_contact.html:13 main/templates/show_contact.html:22
+#: main/templates/base.html:27 main/templates/last_10_requests.html:6
+msgid "Last 10 requests"
+msgstr "10 последних запросов"
+
+#: main/templates/edit_contact.html:16 main/templates/show_contact.html:22
 #: main/templates/show_contact.html:23
 msgid "Edit contact"
 msgstr "Изменить контакт"
 
-#: main/templates/edit_contact.html:15
-msgid "Correct errors, please."
-msgstr "Исправьте ошибки, пожалуйста."
-
-#: main/templates/edit_contact.html:24
+#: main/templates/edit_contact.html:26
 msgid "Save"
 msgstr "Сохранить"
 
-#: main/templates/edit_contact.html:29
+#: main/templates/edit_contact.html:31
 msgid "Main page"
 msgstr "На главную"
+
+#: main/templates/last_10_requests.html:10 reqlog/models.py:11
+#: reqlog/models.py:43
+msgid "date"
+msgstr "дата"
+
+#: main/templates/last_10_requests.html:11 reqlog/models.py:12
+msgid "path"
+msgstr "путь"
+
+#: main/templates/last_10_requests.html:12
+msgid "method"
+msgstr "метод"
+
+#: main/templates/last_10_requests.html:13 reqlog/models.py:15
+msgid "remote address"
+msgstr "адрес"
+
+#: main/templates/last_10_requests.html:14 reqlog/models.py:19
+msgid "remote host"
+msgstr "хост"
+
+#: main/templates/last_10_requests.html:15 reqlog/models.py:17
+msgid "referer"
+msgstr "обратная ссылка"
+
+#: main/templates/last_10_requests.html:16 reqlog/models.py:21
+msgid "user agent"
+msgstr "агент"
+
+#: main/templates/last_10_requests.html:17 reqlog/models.py:22
+msgid "is sequre"
+msgstr "SSL"
+
+#: main/templates/last_10_requests.html:18 reqlog/models.py:24
+msgid "request string"
+msgstr "параметры запроса"
+
+#: main/templates/last_10_requests.html:26
+msgid "Edit log in admin"
+msgstr "Редактировать запись в админке"
+
+#: main/templates/last_10_requests.html:42
+msgid "No request logs."
+msgstr "Логи запросов не найдены."
 
 #: main/templates/login.html:5
 msgid "Authentication"
@@ -136,40 +177,8 @@ msgstr "Редактировать контакт в админке"
 msgid "Sorry, can't find contact."
 msgstr "Извините, контакт не найден."
 
-#: reqlog/models.py:11 reqlog/models.py:43
-msgid "date"
-msgstr ""
-
-#: reqlog/models.py:12
-msgid "path"
-msgstr ""
-
 #: reqlog/models.py:13
 msgid "HTTP method"
-msgstr ""
-
-#: reqlog/models.py:15
-msgid "remote address"
-msgstr ""
-
-#: reqlog/models.py:17
-msgid "referer"
-msgstr ""
-
-#: reqlog/models.py:19
-msgid "remote host"
-msgstr ""
-
-#: reqlog/models.py:21
-msgid "user agent"
-msgstr ""
-
-#: reqlog/models.py:22
-msgid "is sequre"
-msgstr ""
-
-#: reqlog/models.py:24
-msgid "request string"
 msgstr ""
 
 #: reqlog/models.py:27
@@ -211,3 +220,9 @@ msgstr "событие в объекте"
 #: reqlog/models.py:51
 msgid "object actions log"
 msgstr "события в объектах"
+
+#~ msgid "Contact save error. Try again."
+#~ msgstr "Ошибка сохранения контакта. Попробуйте еще раз."
+
+#~ msgid "Correct errors, please."
+#~ msgstr "Исправьте ошибки, пожалуйста."
