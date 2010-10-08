@@ -12,30 +12,29 @@ from django.utils.simplejson import loads
 from tddspry.django import DatabaseTestCase, HttpTestCase
 
 from main.models import Contact
-from main.forms import CalendarWidget
-
-
-CONTACT_NAME = 'test_name'
-CONTACT_NEW_NAME = 'new_name'
+from main.forms import ContactForm, CalendarWidget
 
 
 class TestContact(DatabaseTestCase):
     """ Make CRUD tests for Contact model """
 
+    CONTACT_NAME = 'test_name'
+    CONTACT_NEW_NAME = 'new_name'
+
     def create_test(self):
-        self.assert_create(Contact, name=CONTACT_NAME)
+        self.assert_create(Contact, name=self.CONTACT_NAME)
 
     def delete_test(self):
-        contact = self.assert_create(Contact, name=CONTACT_NAME)
+        contact = self.assert_create(Contact, name=self.CONTACT_NAME)
         self.assert_delete(contact)
 
     def read_test(self):
-        self.assert_create(Contact, name=CONTACT_NAME)
-        self.assert_read(Contact, name=CONTACT_NAME)
+        self.assert_create(Contact, name=self.CONTACT_NAME)
+        self.assert_read(Contact, name=self.CONTACT_NAME)
 
     def update_test(self):
-        contact = self.assert_create(Contact, name=CONTACT_NAME)
-        self.assert_update(contact, name=CONTACT_NEW_NAME)
+        contact = self.assert_create(Contact, name=self.CONTACT_NAME)
+        self.assert_update(contact, name=self.CONTACT_NEW_NAME)
 
 
 class TestContactShow(HttpTestCase):
@@ -142,6 +141,15 @@ class TestDateWidget(HttpTestCase):
         except:
             self.assert_true(False,
                              'CalendarWidget class not found in date tag')
+
+
+class TestContactFormFieldsOrder(HttpTestCase):
+    """ Test contact form fields order (fail, if not reversed) """
+
+    def test_contact_form_fields_order(self):
+        form = ContactForm()
+        fields = form.fields.keys()
+        self.assert_true(fields.index('name') > fields.index('phone'))
 
 
 class TestAdminLink(HttpTestCase):
