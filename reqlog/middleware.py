@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from django.utils.simplejson import dumps
+
 from reqlog.models import RequestLog
 
 
@@ -35,7 +37,9 @@ class RequestLoggingMiddleware:
         except:
             pass
         try:
-            log.req_str = "POST: %s GET: %s" % (request.POST, request.GET)
+            res = {'POST': dict(request.POST)}
+            res.update({'GET': dict(request.GET)})
+            log.req_str = dumps(res, ensure_ascii=False, sort_keys=True)
         except:
             pass
         log.save()
