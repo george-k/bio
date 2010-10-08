@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-08 17:02+0300\n"
+"POT-Creation-Date: 2010-10-08 23:30+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,27 +83,43 @@ msgstr "контакт"
 msgid "contacts"
 msgstr "контакты"
 
-#: main/templates/base.html:17 main/templates/last_10_requests.html:6
+#: main/views.py:46
+msgid "Contact updated successfully"
+msgstr "Контакт успешно обновлен"
+
+#: main/views.py:49
+msgid "Contact save error. Try again."
+msgstr "Ошибка сохранения контакта. Попробуйте еще раз."
+
+#: main/views.py:52
+msgid "Correct errors, please"
+msgstr "Исправьте ошибки, пожалуйста"
+
+#: main/templates/base.html:16
+msgid "Main page"
+msgstr "На главную"
+
+#: main/templates/base.html:18 main/templates/last_10_requests.html:6
 msgid "Last 10 requests"
 msgstr "10 последних запросов"
 
-#: main/templates/base.html:19
+#: main/templates/base.html:20
 msgid "Language"
 msgstr "Язык"
 
-#: main/templates/base.html:20
+#: main/templates/base.html:21
 msgid "Mode"
 msgstr "Режим"
 
-#: main/templates/base.html:24
+#: main/templates/base.html:25
 msgid "Welcome, "
 msgstr "Добро пожаловать, "
 
-#: main/templates/base.html:26
+#: main/templates/base.html:27
 msgid "Admin"
 msgstr "Админка"
 
-#: main/templates/base.html:29
+#: main/templates/base.html:30
 msgid "Logout"
 msgstr "Выйти"
 
@@ -112,13 +128,9 @@ msgstr "Выйти"
 msgid "Edit contact"
 msgstr "Изменить контакт"
 
-#: main/templates/edit_contact.html:26
+#: main/templates/edit_contact.html:27
 msgid "Save"
 msgstr "Сохранить"
-
-#: main/templates/edit_contact.html:31
-msgid "Main page"
-msgstr "На главную"
 
 #: main/templates/last_10_requests.html:10 reqlog/models.py:11
 #: reqlog/models.py:43
@@ -228,9 +240,3 @@ msgstr "событие в объекте"
 #: reqlog/models.py:51
 msgid "object actions log"
 msgstr "события в объектах"
-
-#~ msgid "Contact save error. Try again."
-#~ msgstr "Ошибка сохранения контакта. Попробуйте еще раз."
-
-#~ msgid "Correct errors, please."
-#~ msgstr "Исправьте ошибки, пожалуйста."

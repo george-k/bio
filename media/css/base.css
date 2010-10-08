@@ -76,6 +76,12 @@ p {
     padding:5px 0 20px 50px;
 }
 /******************* Contact edit *******************/
+.errorlist, .message_error {
+    color:red;
+}
+.message_ok {
+    color:green;
+}
 .edit_contact label {
     font-weight:bold;
     margin-right:30px;

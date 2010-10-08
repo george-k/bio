@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils.simplejson import dumps
 from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ugettext as __
+from django.utils.translation import ugettext
 
 from main.decorators import render_to
 from main.forms import ContactForm
@@ -42,17 +42,23 @@ def edit_contact(request):
                 contact.email = data['email']
                 contact.phone = data['phone']
                 contact.save()
+                form.result = True
+                form.message = ugettext(u'Contact updated successfully')
             except:
-                form.errors['save_error'] = __('Contact save error. Try again.')
+                form.result = False
+                form.message = ugettext(u'Contact save error. Try again.')
         else:
-            form.errors['errors_message'] = __("Correct errors, please.")
+            form.result = False
+            form.message = ugettext(u"Correct errors, please")
         if request.is_ajax():
-            if form.errors:
-                response = {'result': 'error'}
+            response = {'message': form.message}
+            if not form.result:
+                response['result'] = 'error'
                 response['errors'] = form.errors
-                return HttpResponse(dumps(response))
             else:
-                return HttpResponse(dumps({'result': 'ok'}))
+                response['result'] = 'ok'
+            return HttpResponse(dumps(response))
     else:
         form = ContactForm(instance=contact)
+        form.message = ''
     return {'contact_form': form}

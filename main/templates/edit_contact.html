@@ -14,8 +14,9 @@
 {% load i18n %}
 {% block content %}
 <h1>{% trans "Edit contact" %}</h1>
-<p id="save_error_message">{{ contact_form.errors.save_error }}</p>
-<p id="errors_message">{{ contact_form.errors.errors_message }}</p>
+<p id="form_message" class="{{ contact_form.result|yesno:'message_ok,message_error' }}">
+  {{ contact_form.message }}
+</p>
 <form id="contactform" class="edit_contact" action="" method="post">
   {% csrf_token %}
   <table>

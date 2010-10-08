@@ -10,26 +10,30 @@ $(document).ready(function(){
     $("#contactform").ajaxForm(options);
 
     function processJson(data) {
+        // alert(data);
         unblockForm();
         if(data.result == 'error') {
-            clean_errors();
+            formClean();
             for(var error in data.errors) {
-                message = '<ul class="errorlist"><li>'+
-                    data.errors[error]+'</li></ul>';
-                $('#id_'+error).before(message);
+                message = '<ul class="errorlist"><li>' +
+                    data.errors[error] + '</li></ul>';
+                $('#id_' + error).before(message);
             }
-            $('#save_error_message').text(data.errors.save_error);
-            $('#errors_message').text(data.errors.errors_message);
+            $('#form_message').text(data.message);
+            $('#form_message').addClass('message_error');
         }
         else if(data.result == 'ok') {
-            clean_errors();
+            formClean();
+            $('#form_message').text(data.message);
+            $('#form_message').addClass('message_ok');
         }
     }
 
-    function clean_errors() {
-        $('.errorlist').text('');
-        $('#save_error_message').text('');
-        $('#errors_message').text('');
+    function formClean() {
+        $('.errorlist').remove();
+        $('#form_message').text('');
+        $('#form_message').removeClass('message_error');
+        $('#form_message').removeClass('message_ok');
     }
 
     function disable() {
