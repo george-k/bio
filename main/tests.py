@@ -7,6 +7,7 @@ from django.conf import settings
 from django.core.management import call_command
 from django.core.urlresolvers import reverse
 from django.template import Template, Context
+from django.utils.simplejson import loads
 from tddspry.django import DatabaseTestCase, HttpTestCase
 
 from main.models import Contact
@@ -104,14 +105,14 @@ class TestAdminLink(HttpTestCase):
     """ Test tag, wich returns link to object admin edit page """
 
     def test_admin_link(self):
-         contact = Contact.objects.get(pk=1)
-         pattern = "/admin/{app}/{module}/{obj_pk}/".\
-                format(app=contact._meta.app_label,
-                       module=contact._meta.module_name,
-                       obj_pk=contact.pk)
-         template = Template('{% load owntags %}{% admin_link contact %}')
-         res = template.render(Context({'contact': contact}))
-         self.assert_equal(res, pattern)
+        contact = Contact.objects.get(pk=1)
+        pattern = "/admin/{app}/{module}/{obj_pk}/".\
+                  format(app=contact._meta.app_label,
+                         module=contact._meta.module_name,
+                         obj_pk=contact.pk)
+        template = Template('{% load owntags %}{% admin_link contact %}')
+        res = template.render(Context({'contact': contact}))
+        self.assert_equal(res, pattern)
 
 
 class TestPrintModelsCommand(HttpTestCase):
@@ -125,3 +126,30 @@ class TestPrintModelsCommand(HttpTestCase):
         self.assert_not_equal(output.getvalue().find('models found'), -1)
         self.assert_not_equal(output.getvalue().find('class'), -1)
         self.assert_not_equal(output.getvalue().find('object(s)'), -1)
+
+
+class TestAjax(HttpTestCase):
+    """ Test ajax form work """
+
+    def test_ajax(self):
+        #Login
+        user = self.helper('create_user', 'testuser', 'password')
+        self.login('testuser', 'password')
+        #Send correct request and check it
+        TEST_DATA = {'name': 'testname', 'surname': 'testsurname'}
+        response = self.client.post('/edit_contact/', TEST_DATA,
+                                    HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        try:
+            result = loads(response.content)
+        except:
+            self.assert_false(True, 'Not JSON response')
+        self.assert_equal(result.get('result'), 'ok')
+        #Send incorrect request and check it
+        TEST_DATA = {'name': '', 'surname': ''}
+        response = self.client.post('/edit_contact/', TEST_DATA,
+                                    HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        try:
+            result = loads(response.content)
+        except:
+            self.assert_false(True, 'Not JSON response')
+        self.assert_equal(result.get('result'), 'error')
