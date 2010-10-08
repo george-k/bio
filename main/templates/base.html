@@ -12,6 +12,13 @@
   {% load i18n %}
   <body >
     <div id="page">
+      <div id="info">
+        <a id="last_logs" target="blanc" href="{% url last_logs %}">
+          {% trans "Last 10 requests" %}
+        </a>
+        <span>{% trans "Language"%}: {{ settings.LANGUAGE_CODE|slice:":2"|capfirst }}</span>
+        <span>{% trans "Mode"%}: {{ settings.DEBUG|yesno:"debug, real" }}</span>
+      </div>
       <div class="cab">
         {% if request.user.is_authenticated %}
         {% trans "Welcome, "%}{{ request.user.username}}
@@ -23,9 +30,6 @@
         </a>
         {% endif %}
       </div>
-      <a id="last_logs" target="blanc" href="{% url last_logs %}">
-        {% trans "Last 10 requests" %}
-      </a>
       {% block content %}
       Content
       {% endblock %}

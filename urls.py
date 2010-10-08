@@ -10,7 +10,7 @@ admin.autodiscover()
 
 if 'runserver' in sys.argv:
     urlpatterns = patterns('',
-        url(r'^media/(.*)$', 'django.views.static.serve', 
+        url(r'^media/(.*)$', 'django.views.static.serve',
             kwargs={'document_root': settings.MEDIA_ROOT}),
     )
 else:
@@ -20,4 +20,3 @@ urlpatterns += patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('main.urls')),
 )
-

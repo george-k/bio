@@ -46,7 +46,7 @@ q:before, q:after {
 blockquote, q {
     quotes: "" "";
 }
-/******************************************************************************/
+/****************************************************/
 body {
     background: #ffffff;
     font:12px Arial,Verdana,sans-serif;
@@ -54,8 +54,10 @@ body {
 
 #page {
     width: 900px;
-    margin:0 auto;
+    margin:10px auto;
+    padding:10px;
     position:relative;
+    border:#e2e2e2 solid 1px;
 }
 h1 {
     font-weight:bold;
@@ -65,6 +67,7 @@ h1 {
 p {
     margin-bottom:5px;
 }
+/******************* Contact show *******************/
 .contact dt {
     font-weight:bold
 }
@@ -72,6 +75,7 @@ p {
     font-size:16px;
     padding:5px 0 20px 50px;
 }
+/******************* Contact edit *******************/
 .edit_contact label {
     font-weight:bold;
     margin-right:30px;
@@ -87,13 +91,20 @@ p {
 .edit_contact td img {
     margin-bottom:-4px;
 }
-/* **************************** */
+/************** Auth *****************/
 .auth label {
     font-weight:bold;
     margin-right:30px;
 }
 .auth input {
     margin:3px 0;
+}
+/************** Info  ********************/
+#info {
+    text-align:right;
+}
+#info span {
+    margin-left:20px;
 }
 .cab {
     padding:10px 0;

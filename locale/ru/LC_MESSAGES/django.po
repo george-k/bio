@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-08 15:24+0300\n"
+"POT-Creation-Date: 2010-10-08 17:02+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,21 +83,29 @@ msgstr "контакт"
 msgid "contacts"
 msgstr "контакты"
 
-#: main/templates/base.html:17
+#: main/templates/base.html:17 main/templates/last_10_requests.html:6
+msgid "Last 10 requests"
+msgstr "10 последних запросов"
+
+#: main/templates/base.html:19
+msgid "Language"
+msgstr "Язык"
+
+#: main/templates/base.html:20
+msgid "Mode"
+msgstr "Режим"
+
+#: main/templates/base.html:24
 msgid "Welcome, "
 msgstr "Добро пожаловать, "
 
-#: main/templates/base.html:19
+#: main/templates/base.html:26
 msgid "Admin"
 msgstr "Админка"
 
-#: main/templates/base.html:22
+#: main/templates/base.html:29
 msgid "Logout"
 msgstr "Выйти"
-
-#: main/templates/base.html:27 main/templates/last_10_requests.html:6
-msgid "Last 10 requests"
-msgstr "10 последних запросов"
 
 #: main/templates/edit_contact.html:16 main/templates/show_contact.html:22
 #: main/templates/show_contact.html:23
