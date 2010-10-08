@@ -8,43 +8,43 @@ small, strike, sub, sup, tt, var,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
-margin: 0;
-padding: 0;
-border: 0;
-outline: 0;
-font-weight: inherit;
-font-style: inherit;
-font-size: 100%;
-font-family: inherit;
-vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
 }
 /* remember to define focus styles! */
 :focus {
-outline: 0;
+    outline: 0;
 }
 body {
-line-height: 1;
-color: black;
-background: white;
+    line-height: 1;
+    color: black;
+    background: white;
 }
 ol, ul {
-list-style: none;
+    list-style: none;
 }
 /* tables still need 'cellspacing="0"' in the markup */
 table {
-border-collapse: separate;
-border-spacing: 1px;
+    border-collapse: separate;
+    border-spacing: 1px;
 }
 caption, th, td {
-text-align: left;
-font-weight: normal;
+    text-align: left;
+    font-weight: normal;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-content: "";
+    content: "";
 }
 blockquote, q {
-quotes: "" "";
+    quotes: "" "";
 }
 /******************************************************************************/
 body {
@@ -55,7 +55,7 @@ body {
 #page {
     width: 900px;
     margin:0 auto;
-	position:relative;
+    position:relative;
 }
 h1 {
     font-weight:bold;
@@ -102,4 +102,26 @@ p {
     margin-left:10px;
 }
 .link {
-    margin-right:10px}
+    margin-right:10px
+}
+/************ Last request logs list *********************/
+.query_logs td, .query_logs th {
+    border:1px solid #e2e2e2;
+    padding:3px;
+    vertical-align:middle;
+}
+.query_logs th {
+    text-align:center
+}
+.query_logs .even {
+    background-color:#EDF3FE;
+}
+.query_logs .odd {
+    background-color:#FFFFFF;
+}
+.query_logs tr:hover {
+    background-color:#FFCCFF;
+}
+#last_logs {
+}
+

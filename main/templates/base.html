@@ -23,6 +23,9 @@
         </a>
         {% endif %}
       </div>
+      <a id="last_logs" target="blanc" href="{% url last_logs %}">
+        {% trans "Last 10 requests" %}
+      </a>
       {% block content %}
       Content
       {% endblock %}
