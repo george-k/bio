@@ -105,7 +105,14 @@ class TestAuth(HttpTestCase):
 
     def test_unauthorized_access(self):
         self.login('hackername', 'hackerpassword')
-        self.url(settings.LOGIN_REDIRECT_URL)
+        target_url = reverse('main.views.edit_contact')
+        self.go(target_url)
+        try:
+            self.url(target_url)
+            result = True
+        except:
+            result = False
+        self.assert_false(result, 'Unauthorized access detected')
 
 
 class TestAdminLink(HttpTestCase):
