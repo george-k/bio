@@ -1,0 +1,44 @@
+{% extends "base.html"%}
+
+{% load i18n %}
+{% load owntags %}
+{% block content %}
+<h1>{% trans "Last 10 requests" %}</h1>
+{% if object_list %}
+<table class="query_logs">
+  <thead>
+    <th>{% trans "date"|capfirst %}</th>
+    <th>{% trans "path"|capfirst %}</th>
+    <th>{% trans "method"|capfirst %}</th>
+    <th>{% trans "remote address"|capfirst %}</th>
+    <th>{% trans "remote host"|capfirst %}</th>
+    <th>{% trans "referer"|capfirst %}</th>
+    <th>{% trans "user agent"|capfirst %}</th>
+    <th>{% trans "is sequre"|capfirst %}</th>
+    <th>{% trans "request string"|capfirst %}</th>
+  </thead>
+  <tbody>
+    {% for item in object_list %}
+    <tr class="{% cycle "even" "odd" %}">
+      <td>{{ item.date|date:"SHORT_DATETIME_FORMAT" }}</td>
+      <td>
+        <a class="link" href="{% admin_link item %}" 
+           title="{% trans 'Edit log in admin' %}">
+          {{ item.path }}
+        </a>
+      </td>
+      <td>{{ item.method }}</td> 
+      <td>{{ item.remote_address }}</td>
+      <td>{{ item.remote_host|default:'-' }}</td>
+      <td>{{ item.referer|default:'-' }}</td>
+      <td>{{ item.user_agent|truncatewords:1 }}</td>
+      <td>{{ item.is_sequre|yesno:"yes,no" }}</td>
+      <td>{{ item.req_str }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>{% trans "No request logs." %}</p>
+{% endif %}
+{% endblock %}
