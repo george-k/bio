@@ -73,8 +73,11 @@ class TestContactEdit(HttpTestCase):
         #Login
         user = self.helper('create_user', 'testuser', 'password')
         self.login('testuser', 'password')
-        #Send post request to edit contact
-        response = self.client.post('/edit_contact/', TEST_DATA)
+        #Fill and submit form
+        self.go('/edit_contact/')
+        for field in TEST_DATA:
+            self.formvalue('1', field, TEST_DATA[field])
+        self.submit('0')
         #Get edited contact
         contact = Contact.objects.get(pk=1)
         #Check contact members with test dict fields
