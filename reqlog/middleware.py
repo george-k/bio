@@ -6,7 +6,7 @@ class RequestLoggingMiddleware:
 
     def process_request(self, request):
         """ Create log for request """
-        
+
         #Exclude requests from admin
         if 'admin' in request.path:
             return

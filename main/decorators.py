@@ -9,7 +9,7 @@ def render_to(template=None, mimetype="text/html"):
     function.
 
     """
-    
+
     def renderer(function):
         def wrapper(request, *args, **kwargs):
             output = function(request, *args, **kwargs)
