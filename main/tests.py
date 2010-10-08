@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
+import re
+import sys
 from datetime import date
 from StringIO import StringIO
-import sys
 
 from django.conf import settings
 from django.core.management import call_command
@@ -11,6 +12,7 @@ from django.utils.simplejson import loads
 from tddspry.django import DatabaseTestCase, HttpTestCase
 
 from main.models import Contact
+from main.forms import CalendarWidget
 
 
 CONTACT_NAME = 'test_name'
@@ -113,6 +115,33 @@ class TestAuth(HttpTestCase):
         except:
             result = False
         self.assert_false(result, 'Unauthorized access detected')
+
+
+class TestDateWidget(HttpTestCase):
+    """ Test date widget loading for date field on contact edit page """
+
+    def test_widget(self):
+        self.helper('create_user', 'testuser', 'password')
+        self.login('testuser', 'password')
+        response = self.get(reverse('main.views.edit_contact'))
+        content = response.content
+        #Check needed js files on page
+        for js in CalendarWidget.Media.js:
+            self.assert_not_equal(content.find(js), -1,
+                                  "No needed js file on page: %s" % js)
+        #Check needed css files on page
+        for css in CalendarWidget.Media.css['all']:
+            self.assert_not_equal(content.find(css), -1,
+                                  "No needed css file on page: %s" % css)
+        #Check class of form date field
+        try:
+            pattern = re.compile(r'<input[^>]*id=\"id_birthday\"[^>]*>')
+            result = re.search(pattern, content)
+            date_tag = result.group(0)
+            self.assert_not_equal(date_tag.find('class="vDateField"'), -1)
+        except:
+            self.assert_true(False,
+                             'CalendarWidget class not found in date tag')
 
 
 class TestAdminLink(HttpTestCase):
