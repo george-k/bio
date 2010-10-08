@@ -153,3 +153,13 @@ class TestAjax(HttpTestCase):
         except:
             self.assert_false(True, 'Not JSON response')
         self.assert_equal(result.get('result'), 'error')
+
+
+class TestLogsList(HttpTestCase):
+    """ Test last request logs list """
+
+    def test_logs_list(self):
+        test_path = '/test_path/'
+        self.client.get(test_path)
+        response = self.client.get(reverse('last_logs'))
+        self.assert_not_equal(response.content.find(test_path), -1)
