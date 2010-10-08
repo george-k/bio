@@ -103,6 +103,10 @@ class TestAuth(HttpTestCase):
         self.logout()
         self.url('/')
 
+    def test_unauthorized_access(self):
+        self.login('hackername', 'hackerpassword')
+        self.url(settings.LOGIN_REDIRECT_URL)
+
 
 class TestAdminLink(HttpTestCase):
     """ Test tag, wich returns link to object admin edit page """
