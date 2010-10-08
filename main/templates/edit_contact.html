@@ -2,6 +2,9 @@
 
 {% load adminmedia %}
 {% block extrahead %}
+<script type="text/javascript" src="{{ MEDIA_URL }}js/lib/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/lib/jquery.form.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/ajaxform.js"></script>
 <script type="text/javascript">
   window.__admin_media_prefix__ = "{% filter escapejs %}{% admin_media_prefix %}{% endfilter %}";
 </script>
@@ -10,11 +13,10 @@
 
 {% load i18n %}
 {% block content %}
-<h1 class="title">{% trans "Edit contact" %}</h1>
-{% if contact_form.errors %}
-<p class="form_errors">{% trans "Correct errors, please." %}</p>
-{% endif %}
-<form class="edit_contact" action="" method="post">
+<h1>{% trans "Edit contact" %}</h1>
+<p id="save_error_message">{{ contact_form.errors.save_error }}</p>
+<p id="errors_message">{{ contact_form.errors.errors_message }}</p>
+<form id="contactform" class="edit_contact" action="" method="post">
   {% csrf_token %}
   <table>
     {{ contact_form.as_table }}
