@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 from main.models import Contact
 
 
-class CalendarWidget(forms.TextInput):
+class CalendarWidget(forms.DateInput):
     """ Calendar widget """
 
     class Media:
