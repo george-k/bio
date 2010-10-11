@@ -25,7 +25,7 @@ class RequestLogAdmin(admin.ModelAdmin):
                               format(n=len(queryset)))
         except Exception as error:
             self.message_user(request,
-                              _('Logs rset to default failed'))
+                              _('Logs reset to default failed'))
     set_to_default.short_description = _("Set priority to default value")
 
 

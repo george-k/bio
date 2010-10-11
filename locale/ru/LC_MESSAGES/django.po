@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-08 23:30+0300\n"
+"POT-Creation-Date: 2010-10-11 16:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -133,7 +133,7 @@ msgid "Save"
 msgstr "Сохранить"
 
 #: main/templates/last_10_requests.html:10 reqlog/models.py:11
-#: reqlog/models.py:43
+#: reqlog/models.py:45
 msgid "date"
 msgstr "дата"
 
@@ -169,11 +169,15 @@ msgstr "SSL"
 msgid "request string"
 msgstr "параметры запроса"
 
-#: main/templates/last_10_requests.html:26
+#: main/templates/last_10_requests.html:19 reqlog/models.py:25
+msgid "priority"
+msgstr "приоритет"
+
+#: main/templates/last_10_requests.html:27
 msgid "Edit log in admin"
 msgstr "Редактировать запись в админке"
 
-#: main/templates/last_10_requests.html:42
+#: main/templates/last_10_requests.html:44
 msgid "No request logs."
 msgstr "Логи запросов не найдены."
 
@@ -197,46 +201,58 @@ msgstr "Редактировать контакт в админке"
 msgid "Sorry, can't find contact."
 msgstr "Извините, контакт не найден."
 
+#: reqlog/admin.py:24
+msgid "{n} entries was updated"
+msgstr "{n} записей были обновлены"
+
+#: reqlog/admin.py:28
+msgid "Logs reset to default failed"
+msgstr "Ошибка изменения приоритета"
+
+#: reqlog/admin.py:29
+msgid "Set priority to default value"
+msgstr "Установить приоритет в значение по умолчанию"
+
 #: reqlog/models.py:13
 msgid "HTTP method"
 msgstr ""
 
-#: reqlog/models.py:27
+#: reqlog/models.py:29
 msgid "request log"
 msgstr "лог запроса"
 
-#: reqlog/models.py:28
+#: reqlog/models.py:30
 msgid "request logs"
 msgstr "логи запросов"
 
-#: reqlog/models.py:38
+#: reqlog/models.py:40
 msgid "Created"
 msgstr "Создан"
 
-#: reqlog/models.py:39
+#: reqlog/models.py:41
 msgid "Updated"
 msgstr "Изменен"
 
-#: reqlog/models.py:40
+#: reqlog/models.py:42
 msgid "Deleted"
 msgstr "Удален"
 
-#: reqlog/models.py:44
+#: reqlog/models.py:46
 msgid "model name"
 msgstr "модель"
 
-#: reqlog/models.py:45
+#: reqlog/models.py:47
 msgid "object pk"
 msgstr "pk объекта"
 
-#: reqlog/models.py:47
+#: reqlog/models.py:49
 msgid "action"
 msgstr "событие"
 
-#: reqlog/models.py:50
+#: reqlog/models.py:52
 msgid "object action log"
 msgstr "событие в объекте"
 
-#: reqlog/models.py:51
+#: reqlog/models.py:53
 msgid "object actions log"
 msgstr "события в объектах"
