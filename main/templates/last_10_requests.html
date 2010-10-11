@@ -16,6 +16,7 @@
     <th>{% trans "user agent"|capfirst %}</th>
     <th>{% trans "is sequre"|capfirst %}</th>
     <th>{% trans "request string"|capfirst %}</th>
+    <th>{% trans "priority"|capfirst %}</th>
   </thead>
   <tbody>
     {% for item in object_list %}
@@ -34,6 +35,7 @@
       <td>{{ item.user_agent|truncatewords:1 }}</td>
       <td>{{ item.is_sequre|yesno:"yes,no" }}</td>
       <td>{{ item.req_str }}</td>
+      <td>{{ item.priority }}</td>
     </tr>
     {% endfor %}
   </tbody>
