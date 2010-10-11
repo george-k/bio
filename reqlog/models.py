@@ -22,6 +22,8 @@ class RequestLog(models.Model):
     is_sequre = models.BooleanField(verbose_name=_('is sequre'), default=False)
     req_str = models.TextField(blank=True,  null=True,
                                verbose_name=_('request string'))
+    priority = models.PositiveIntegerField(verbose_name=_('priority'),
+                                           default=0)
 
     class Meta:
         verbose_name = _('request log')
