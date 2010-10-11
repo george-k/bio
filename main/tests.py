@@ -105,11 +105,17 @@ class TestAuth(HttpTestCase):
         self.url('/')
 
     def test_unauthorized_access(self):
-        target_url = reverse('main.views.edit_contact')
-        browser = self.get_browser()
-        browser.go(target_url)
-        if browser.get_code() != 403:
-            self.assert_not_equal(browser.get_url(), target_url)
+        target_url = self.build_url('main.views.edit_contact')
+        self.go(target_url)
+        try:
+            self.code(403)
+        except:
+            try:
+                self.url(target_url)
+                result = True
+            except:
+                result = False
+            self.assert_false(result)
 
 
 class TestDateWidget(HttpTestCase):
