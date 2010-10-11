@@ -110,12 +110,7 @@ class TestAuth(HttpTestCase):
         try:
             self.code(403)
         except:
-            try:
-                self.url(target_url)
-                result = True
-            except:
-                result = False
-            self.assert_false(result)
+            self.url(re.escape('login/?next=%s' % target_url))
 
 
 class TestDateWidget(HttpTestCase):
