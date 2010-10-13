@@ -22,7 +22,7 @@ class RequestLoggingMiddleware:
         log.user_agent = request.META.get('HTTP_USER_AGENT')
         try:
             log.is_sequre = request.is_sequre()
-        except:
+        except AttributeError:
             pass
         res = {'POST': dict(request.POST)}
         res.update({'GET': dict(request.GET)})

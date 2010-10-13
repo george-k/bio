@@ -15,7 +15,7 @@ def show_contact(request):
     """ Show contact """
     try:
         contact = Contact.objects.get(pk=1)
-    except:
+    except Contact.DoesNotExist:
         contact = None
     return {'contact': contact}
 
@@ -27,7 +27,7 @@ def edit_contact(request):
     #Get contact
     try:
         contact = Contact.objects.get(pk=1)
-    except:
+    except Contact.DoesNotExist:
         return HttpResponseRedirect('/')
     #Handle request
     if request.method == 'POST':
@@ -37,7 +37,7 @@ def edit_contact(request):
                 form.save()
                 form.result = True
                 form.message = ugettext(u'Contact updated successfully')
-            except:
+            except DatabaseError:
                 form.result = False
                 form.message = ugettext(u'Contact save error. Try again.')
         else:

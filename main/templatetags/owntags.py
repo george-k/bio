@@ -13,7 +13,7 @@ def admin_link(object):
     try:
         if not object.__metaclass__ == ModelBase:
             raise
-    except:
+    except Exception:
         err = "Admin_link tag argument must be " + \
               "a subclass of django.models.Model."
         raise template.TemplateSyntaxError(err)
