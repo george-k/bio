@@ -135,7 +135,7 @@ class TestDateWidget(HttpTestCase):
             result = re.search(pattern, content)
             date_tag = result.group(0)
             self.assert_not_equal(date_tag.find('class="vDateField"'), -1)
-        except:
+        except (KeyError, AssertionError):
             self.assert_true(False,
                              'CalendarWidget class not found in date tag')
 
@@ -189,7 +189,7 @@ class TestAjax(HttpTestCase):
                                     HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         try:
             result = loads(response.content)
-        except:
+        except JSONDecodeError:
             self.assert_false(True, 'Not JSON response')
         self.assert_equal(result.get('result'), 'ok')
         #Send incorrect request and check it
@@ -198,7 +198,7 @@ class TestAjax(HttpTestCase):
                                     HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         try:
             result = loads(response.content)
-        except:
+        except JSONDecodeError:
             self.assert_false(True, 'Not JSON response')
         self.assert_equal(result.get('result'), 'error')
 

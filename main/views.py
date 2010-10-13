@@ -15,7 +15,7 @@ def show_contact(request):
     """ Show contact """
     try:
         contact = Contact.objects.get(pk=1)
-    except:
+    except Contact.DoesNotExist:
         contact = None
     return {'contact': contact}
 
@@ -27,24 +27,17 @@ def edit_contact(request):
     #Get contact
     try:
         contact = Contact.objects.get(pk=1)
-    except:
+    except Contact.DoesNotExist:
         return HttpResponseRedirect('/')
     #Handle request
     if request.method == 'POST':
-        form = ContactForm(request.POST)
+        form = ContactForm(request.POST, instance=contact)
         if form.is_valid():
             try:
-                data = form.cleaned_data
-                contact.name = data['name']
-                contact.surname = data['surname']
-                contact.birthday = data['birthday']
-                contact.bio = data['bio']
-                contact.email = data['email']
-                contact.phone = data['phone']
-                contact.save()
+                form.save()
                 form.result = True
                 form.message = ugettext(u'Contact updated successfully')
-            except:
+            except DatabaseError:
                 form.result = False
                 form.message = ugettext(u'Contact save error. Try again.')
         else:

@@ -32,10 +32,7 @@ class TestRequestLogging(HttpTestCase):
         self.assert_true(len(last_logs), 'Log not found')
         last_log = last_logs[0]
         self.assert_not_equal(last_log.req_str.find('teststring'), -1)
-        try:
-            self.assert_equal(last_log.priority, 1)
-        except:
-            self.assert_true(False, 'Request log priority failed')
+        self.assert_equal(last_log.priority, 0, 'Request log priority failed')
 
 
 class TestObjectActionLogging(HttpTestCase):

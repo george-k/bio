@@ -16,30 +16,15 @@ class RequestLoggingMiddleware:
         log = RequestLog()
         log.path = request.path
         log.method = request.method
-        try:
-            log.remote_address = request.META['REMOTE_ADDR']
-        except:
-            pass
-        try:
-            log.referer = request.META['HTTP_REFERER']
-        except:
-            pass
-        try:
-            log.remote_host = request.META['REMOTE_HOST']
-        except:
-            pass
-        try:
-            log.user_agent = request.META['HTTP_USER_AGENT']
-        except:
-            pass
+        log.remote_address = request.META.get('REMOTE_ADDR')
+        log.referer = request.META.get('HTTP_REFERER')
+        log.remote_host = request.META.get('REMOTE_HOST')
+        log.user_agent = request.META.get('HTTP_USER_AGENT')
         try:
             log.is_sequre = request.is_sequre()
-        except:
+        except AttributeError:
             pass
-        try:
-            res = {'POST': dict(request.POST)}
-            res.update({'GET': dict(request.GET)})
-            log.req_str = dumps(res, ensure_ascii=False, sort_keys=True)
-        except:
-            pass
+        res = {'POST': dict(request.POST)}
+        res.update({'GET': dict(request.GET)})
+        log.req_str = dumps(res, ensure_ascii=False, sort_keys=True)
         log.save()
