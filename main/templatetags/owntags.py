@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django import template
+from django.core import urlresolvers
 from django.db.models.base import ModelBase
 
 
@@ -16,8 +17,8 @@ def admin_link(object):
         err = "Admin_link tag argument must be " + \
               "a subclass of django.models.Model."
         raise template.TemplateSyntaxError(err)
-    link = "/admin/{app}/{module}/{obj_pk}/".\
-           format(app=object._meta.app_label,
-                  module=object._meta.module_name,
-                  obj_pk=object.pk)
+    link = urlresolvers.reverse('admin:{app}_{model}_change'.\
+                                format(app=object._meta.app_label,
+                                       model=object._meta.module_name),
+                                args=(object.id,))
     return link
