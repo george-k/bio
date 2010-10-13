@@ -31,17 +31,10 @@ def edit_contact(request):
         return HttpResponseRedirect('/')
     #Handle request
     if request.method == 'POST':
-        form = ContactForm(request.POST)
+        form = ContactForm(request.POST, instance=contact)
         if form.is_valid():
             try:
-                data = form.cleaned_data
-                contact.name = data['name']
-                contact.surname = data['surname']
-                contact.birthday = data['birthday']
-                contact.bio = data['bio']
-                contact.email = data['email']
-                contact.phone = data['phone']
-                contact.save()
+                form.save()
                 form.result = True
                 form.message = ugettext(u'Contact updated successfully')
             except:
